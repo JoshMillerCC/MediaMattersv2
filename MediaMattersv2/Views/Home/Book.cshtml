@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MediaMattersv2.Models.Books.Book>
+@inject MediaMattersv2.Models.Books.IBookRepository BookRepository;
+@{
+    ViewData["Title"] = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Books</h1>
+
+<div class="text-center">
+    <h1>My Favorite Books</h1>
+    @foreach (MediaMattersv2.Models.Books.Book b in Model)
+    {
+<div>
+    <h2>@b.title</h2>
+    <img src=@Url.Content(@b.image) alt="@b.title" height="250" width="200" />
+    <p>ISBN:@b.ISBN</p>
+    <p>Author: @b.firstName @b.lastName</p>
+    <p>Book Edition: @b.edition</p>
+    <p>Date Published: @b.publishedDate</p>
+    <p>Notes: @b.notes</p>
+</div>
+    }
+</div>
+
+

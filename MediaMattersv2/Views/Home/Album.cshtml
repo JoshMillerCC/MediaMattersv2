@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MediaMattersv2.Models.Albums.Album>
+@inject MediaMattersv2.Models.Albums.IAlbumRepository AlbumRepository;
+@{
+    ViewData["Title"] = "Album";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Albums</h1>
+
+<div class="text-center">
+    <h1>My Favorite Albums</h1>
+    @foreach (MediaMattersv2.Models.Albums.Album a in Model)
+    {
+<div>
+    <h2>@a.title</h2>
+    <img src=@Url.Content(@a.image) alt="@a.title" height="200" width="200"/>
+    <p>Group: @a.group</p>
+    <p>Notes: @a.notes</p>
+</div>
+    }
+</div>

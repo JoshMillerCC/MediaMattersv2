@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MediaMattersv2.Models.Games.Game>
+@inject MediaMattersv2.Models.Games.IGameRepository GameRepository;
+@{
+    ViewData["Title"] = "Game";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Games</h1>
+
+<div class="text-center">
+    <h1>My Favorite Games</h1>
+    @foreach (MediaMattersv2.Models.Games.Game g in Model)
+    {
+<div>
+    <h2>@g.title</h2>
+    <img src=@Url.Content(@g.image) alt="@g.title" height="250", width="200"/>
+    <p>Platform: @g.platform</p>
+    <p>Release Date: @g.releaseDate</p>
+    <p>Creator: @g.creator</p>
+    <p>Number of Players: @g.numOfPlayers</p>
+    <p>Notes: @g.notes</p>
+</div>
+    }
+</div>
